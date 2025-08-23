@@ -1,23 +1,24 @@
-.header{
-    background-color: white;
-    background: linear-gradient(
-        90deg,
-        rgba(255,255,255,1) 0%,
-        rgba(50,160,65,1) 50%,
-        rgba(255,255,255,1) 100%
-    );
-
+.header {
+    background: #F8F4F9;
+    background: linear-gradient(90deg, rgba(248, 244, 249, 1) 0%, rgba(175, 127, 235, 1) 50%, rgba(248, 244, 249, 1) 100%);
     color: white;
     padding: 15px;
     text-align: center;
+    font-family: "Google Sans Code", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
+
+  
 .header nav a {
     color: white;
     margin: 0px;
     text-decoration: none;
 }
-.header img{
+
+.header img {
     height: 100px;
     float: left;
     position: absolute;

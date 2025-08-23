@@ -1,6 +1,5 @@
-.footer{
-    background-color: lightgray;
-    color: black;
+.footer {
+    color: white;
     text-align: center;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -9,4 +8,12 @@
     bottom: 0px;
     position: fixed;
     width: 100%;
+    background: #F8F4F9;
+    background: linear-gradient(90deg, rgba(248, 244, 249, 1) 0%, rgba(175, 127, 235, 1) 50%, rgba(248, 244, 249, 1) 100%);
+
+    font-family: "Google Sans Code", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+
 }
