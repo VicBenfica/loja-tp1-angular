@@ -1,4 +1,4 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, input, output, signal } from '@angular/core';
 
 
 @Component({
@@ -10,10 +10,13 @@ import { Component, input, signal } from '@angular/core';
 export class Header {
   tituloLoja = input.required<string>(); //<app-header [tituloLoja]="'Titulo'"></app-header>
   
-    
+  textoSobre = output<string>();
 
-    exibirSobre(nome:String): void{
-      alert(`Mensagem padrão ${nome}`);
+  enviarSobre(){
+    this.textoSobre.emit('Técnicas de Programação 1, desenvolvido por Victoria Benfica');
+  }
+    //exibirSobre(nome:String): void{
+    // alert(`Mensagem padrão ${nome}`);
       //titulo = 'Loja TP1';
-    }
+    //}
 }
