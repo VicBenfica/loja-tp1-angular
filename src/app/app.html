@@ -1,15 +1,10 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap"
-  rel="stylesheet">
-
-
 <app-header [tituloLoja]="'Loja TP1 Angular'" (textoSobre)="receberSobre($event)"></app-header>
 <app-banner></app-banner>
-
 <div class="container">
-  <!--<h2>Angular - Aula 2</h2>
-  <span>{{sobre ?? 'Em construcao.'}}</span><br><br>-->
-  <lista-produtos></lista-produtos>
+    {{sobre}}
+    <!--<h2>Angular - Aula 02</h2>
+    <span>{{sobre ?? 'Em construção'}}</span><br><br>
+-->
+    <lista-produtos></lista-produtos>
 </div>
 <app-footer></app-footer>

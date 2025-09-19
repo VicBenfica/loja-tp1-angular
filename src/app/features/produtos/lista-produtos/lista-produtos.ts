@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { Produto } from '../../../model/produto';
-import { CardProduto } from '../card-produto/card-produto';
+import { CardProduto } from "../card-produto/card-produto";
 
 @Component({
   selector: 'lista-produtos',
@@ -12,28 +12,44 @@ export class ListaProdutos {
   produtos: Produto[] = [
     {
       id: 1,
-      nome: 'Produto 1',
-      descricao: 'Desc: Prod1',
-      preco: 179.90,
-      //imagenURL: 
-      promo:true
+      nome: 'O Mochileiro das Galáxias',
+      descricao: 'Douglas Adams - Fantasia',
+      preco: 50.00,
+      imageURL: 'images/MochileiroDasGalaxias.jpeg',
+      promo: true,
+      estado: 'novo'
     },
     {
       id: 2,
-      nome: 'Produto 2',
-      descricao: 'Desc: Prod 2',
-      preco: 179.90
+      nome: 'O Processo',
+      descricao: 'Franz Kafka - Suspense',
+      preco: 47.92,
+      imageURL: 'images/Processo.png',
+      estado: 'usado'
     },
     {
       id: 3,
-      nome: 'Produto 3',
-      descricao: 'Desc: Prod 3',
-      preco: 179.90
-
+      nome: 'O Guia do Mochileiro das Galáxias',
+      descricao: 'Stephen Chbosky - Infantil',
+      preco: 50.90,
+      imageURL: 'images/VantagensInvisivel.png',
+      estado: 'esgotado'
     }
   ]
 
-  onAddProduct(produto:{id:number,quatity:number}){
-    alert(`Produto ${produto.id},${produto.quatity} unidades`);
+  apenaspromo = signal(false);
+
+  prodExibidos = computed(() => this.apenaspromo() ? this.produtos.filter(p => p.promo) : this.produtos);
+
+  alternarPromo(){
+    this.apenaspromo.update(p => !p);
+  }
+
+  onAddProduto(produto: {id: number, quantity: number}){
+    alert(`Produto ${produto.id}, ${produto.quantity} unidades`);
+  }
+
+  onViewProduct(id: number){
+    alert(`Id do produto: ${id}`);
   }
 }

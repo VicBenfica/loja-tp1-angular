@@ -1,5 +1,4 @@
-import { Component, input, output, signal } from '@angular/core';
-
+import { Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -8,15 +7,12 @@ import { Component, input, output, signal } from '@angular/core';
   styleUrl: './header.css'
 })
 export class Header {
-  tituloLoja = input.required<string>(); //<app-header [tituloLoja]="'Titulo'"></app-header>
-  
+  tituloLoja = input.required<string>(); // <app-header [tituloLoja] = "titulo"></app-header>
+
   textoSobre = output<string>();
 
   enviarSobre(){
-    this.textoSobre.emit('Técnicas de Programação 1, desenvolvido por Victoria Benfica');
+    this.textoSobre.emit('Técnicas de Programação 1 - Desenvolvido por Bruna Serra');
   }
-    //exibirSobre(nome:String): void{
-    // alert(`Mensagem padrão ${nome}`);
-      //titulo = 'Loja TP1';
-    //}
+
 }

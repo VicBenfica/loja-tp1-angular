@@ -3,6 +3,7 @@ export interface Produto {
     nome: string;
     preco: number;
     descricao: string;
-    imagemURL?:string;
+    imageURL?: string;
     promo?: boolean;
+    estado?: 'novo' | 'usado' | 'esgotado';
 }
