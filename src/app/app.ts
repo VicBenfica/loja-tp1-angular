@@ -6,23 +6,24 @@ import { QuantidadeControle } from "./shared/quantidade-controle/quantidade-cont
 import { Produto } from './model/produto';
 import { CardProduto } from './features/produtos/card-produto/card-produto';
 import { ListaProdutos } from "./features/produtos/lista-produtos/lista-produtos";
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [Header, Footer, Banner, CardProduto, ListaProdutos, QuantidadeControle],
+  imports: [Header, Footer, Banner, CardProduto, ListaProdutos, QuantidadeControle, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
 
-    sobre? : string;
+  sobre?: string;
 
-//input = [nome]
-//output = (nome)
-//model = [(contador) = "signal"]
+  //input = [nome]
+  //output = (nome)
+  //model = [(contador) = "signal"]
   qtd = signal(1);
 
-  receberSobre(texto: string){
+  receberSobre(texto: string) {
     this.sobre = texto;
   }
 }

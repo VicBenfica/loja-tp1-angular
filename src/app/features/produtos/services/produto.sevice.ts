@@ -36,8 +36,12 @@ export class ProdutoSevice {
   ];
 
   listar():Observable<Produto[]>{
-    this.logger.info('[ProdutoService] - Listando produtos');
+    this.logger.info('[ProdutoService] listar()');
     return of(this.listaMock).pipe(delay(1000));//1 segundo
+  }
+
+  getById(id:number): Observable<Produto | undefined>{
+    return of(this.listaMock.find(p => p.id == id));
   }
   
 }
