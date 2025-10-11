@@ -10,7 +10,7 @@ describe('QuantidadeControle', () => {
     await TestBed.configureTestingModule({
       imports: [QuantidadeControle]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(QuantidadeControle);
     component = fixture.componentInstance;

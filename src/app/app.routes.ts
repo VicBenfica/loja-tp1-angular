@@ -5,10 +5,10 @@ import { ProdutoDetalhe } from './features/produtos/produto-detalhe/produto-deta
 import { Sobre } from './features/sobre/sobre';
 
 export const routes: Routes = [
-    { path: '', component: Home },
-    { path: 'produtos', component: ListaProdutos },
-    { path: 'produtos/:id', component: ProdutoDetalhe },
-    { path: 'sobre', component: Sobre },
-    { path: '**', redirectTo: '' }
-    //se for uma rota que não for nenhuma redireciona para  o '' -> Home
+    {path: '', component: Home},
+    {path: 'produtos', component: ListaProdutos},
+    {path: 'produtos/:id', component: ProdutoDetalhe},
+    {path: 'sobre', component: Sobre},
+    {path: '**', redirectTo: ''}
+
 ];

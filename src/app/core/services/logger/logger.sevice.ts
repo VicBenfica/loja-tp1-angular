@@ -3,15 +3,18 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class LoggerSevice {
-  info(msg: String, extra?: unknown) {//any
-    console.info(msg, extra ?? '');
+export class LoggerService {
+  info(msg: string, extra?: unknown) {
+      console.info(msg, extra ?? '');
   }
-  warn(msg: String, extra?:unknown) {
-    console.warn(msg, extra ?? '');
 
+  warn(msg: string, extra?: unknown) {
+      console.warn(msg, extra ?? '');
   }
-  error(msg: String, extra?:unknown) {
-    console.error(msg, extra ?? '');
+
+  error(msg: string, extra?: unknown){
+      console.error(msg, extra ?? '');
   }
+
+  
 }
