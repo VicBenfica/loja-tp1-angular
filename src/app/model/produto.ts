@@ -10,8 +10,8 @@ export interface Produto {
 }
 const estados = ['novo', 'usado', 'esgotado'] as const;
 
-export class ProdutoMapper{
-    static fromJson(json: any): Produto{
+export class ProdutoMapper {
+    static fromJson(json: any): Produto {
         let _estado = estados[Math.floor(Math.random() * estados.length)];
         return {
             id: json.id,
@@ -24,8 +24,8 @@ export class ProdutoMapper{
         };
     }
 
-    static toJson(prod: Produto): any{
-        return{
+    static toJson(prod: Produto): any {
+        return {
             id: prod.id,
             title: prod.nome,
             price: prod.preco,

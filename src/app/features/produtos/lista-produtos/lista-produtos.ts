@@ -16,11 +16,13 @@ import { finalize } from 'rxjs';
 export class ListaProdutos {
   private produtoService = inject(ProdutoService);
   private router = inject(Router);
+
+
   loading = signal(true);
 
   private produtos = toSignal<Produto[], Produto[]>(
-    this.produtoService.listar().pipe(finalize(() => this.loading.set(false))), 
-    {initialValue: []});
+    this.produtoService.listar().pipe(finalize(() => this.loading.set(false))),
+    { initialValue: [] });
   apenaspromo = signal(false);
 
   prodExibidos = computed(() => {
@@ -29,16 +31,16 @@ export class ListaProdutos {
       : this.produtos();
   });
 
-  alternarPromo(){
+  alternarPromo() {
     this.apenaspromo.update(p => !p);
   }
 
-  onAddProduto(produto: {id: number, quantity: number}){
+  onAddProduto(produto: { id: number, quantity: number }) {
     alert(`Produto ${produto.id}, ${produto.quantity} unidades`);
   }
 
-  onViewProduct(id: number){
+  onViewProduct(id: number) {
     this.router.navigate(['/produtos', id]);
   }
-  
+
 }

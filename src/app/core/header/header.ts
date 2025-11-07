@@ -13,7 +13,7 @@ export class Header {
   textoSobre = output<string>();
 
   enviarSobre(){
-    this.textoSobre.emit('Técnicas de Programação 1 - Desenvolvido por Bruna Serra');
+    this.textoSobre.emit('Técnicas de Programação 1 - Desenvolvido por Victoria Benfica');
   }
 
 }
