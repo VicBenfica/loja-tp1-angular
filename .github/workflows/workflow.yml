@@ -2,6 +2,7 @@ name: Continuos Integration
 on: pull_request
 
 jobs: 
+
   continuos-integration:
     runs-on: ubuntu-latest
 
@@ -14,5 +15,5 @@ jobs:
       - name: run install, build and test
         run: |
             npm install
-            npm run build
+            npm run build     
            
