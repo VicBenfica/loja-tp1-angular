@@ -30,13 +30,13 @@ jobs:
           node-version: 22.
           
       # Define um nome para este passo que agrupa várias ações de linha de comando.
-      - name: run install, build and test
+      - name: run install and build
         # O comando 'run' permite executar comandos de shell.
         # npm install : Instala as dependências do projeto.
         # Executa o comando de build, compilação do projeto Angular.
         run: |
           npm install
-          npm run build
+          npm run build -- --configuration production
       - name: Disparar Vercel
         run: |
           curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_COzDnxEpbSvd0zHoRyxIQf3fDgCb/lGaHeX1JYj
