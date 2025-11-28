@@ -11,7 +11,7 @@ export class ProdutoService {
   logger = inject(LoggerService);
   http = inject(HttpClient);
 
-  private apiUrl = 'https://fakestoreapi.com/products';
+  apiUrl = 'https://fakestoreapi.com/products';
 
   listar(): Observable<Produto[]> {
     this.logger.info('[ProdutoService] - listar() - consumindo API Externa');
@@ -24,26 +24,36 @@ export class ProdutoService {
     );
   }
 
-  
+
 
   getById(id: number): Observable<Produto | undefined> {
-  this.logger.info(`[ProdutoService] - getById(${id}) - consumindo API Externa`);
-  
-  // Monta a URL específica do produto
-  const url = `${this.apiUrl}/${id}`;
+    this.logger.info(`[ProdutoService] - getById(${id}) - consumindo API Externa`);
 
-  return this.http.get<any>(url).pipe(
-    // Transforma o JSON retornado em Produto (usando o mapper)
-    map(json => ProdutoMapper.fromJson(json)),
-    // Delay apenas para simular tempo de resposta (igual às aulas)
-    delay(500),
-    // Tratamento de erro
-    catchError(err => {
-      this.logger.error(`[ProdutoService] erro ao buscar produto id=${id}`, err);
-      // Retorna um Observable com "undefined" para evitar quebra no subscribe()
-      return of(undefined);
-    })
-  );
-}
+    // Monta a URL específica do produto
+    const url = `${this.apiUrl}/${id}`;
+
+    return this.http.get<any>(url).pipe(
+      // Transforma o JSON retornado em Produto (usando o mapper)
+      map(json => ProdutoMapper.fromJson(json)),
+      // Delay apenas para simular tempo de resposta (igual às aulas)
+      delay(500),
+      // Tratamento de erro
+      catchError(err => {
+        this.logger.error(`[ProdutoService] erro ao buscar produto id=${id}`, err);
+        // Retorna um Observable com "undefined" para evitar quebra no subscribe()
+        return of(undefined);
+      })
+    );
+  }
+  criar(produto: Produto): Observable<any> {
+    let body = {
+      title: produto.nome,
+      price: produto.preco,
+      description: produto.descricao,
+      Image: produto.imageURL,
+      category: produto.categoria
+    }
+    return this.http.post(this.apiUrl, body);
+  }
 
 }
